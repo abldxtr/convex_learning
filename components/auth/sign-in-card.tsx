@@ -36,7 +36,9 @@ export const SignInCard = ({ setState }: SignInCardProps) => {
 
   const handlePasswordSignIn = form.handleSubmit(({ email, password }) => {
     setSigningIn(true);
-    signIn("password", { email, password, flow: "signIn" })
+    //  signIn(provider:"password", param:{ email, password, flow: "signIn" })
+    void signIn("password",{ email, password, flow: "signIn" })
+
       .catch(() => {
         setError("Invalid email or password");
       })
@@ -44,13 +46,6 @@ export const SignInCard = ({ setState }: SignInCardProps) => {
         setSigningIn(false);
       });
   });
-
-  const handleProviderSignIn = (value: "github" | "google") => () => {
-    setSigningIn(true);
-    signIn(value).finally(() => {
-      setSigningIn(false);
-    });
-  };
 
   return (
     <Card className="w-full h-full p-8">
@@ -94,28 +89,7 @@ export const SignInCard = ({ setState }: SignInCardProps) => {
           </Button>
         </form>
         <Separator />
-        <div className="flex flex-col gap-y-2.5">
-          <Button
-            disabled={signingIn}
-            onClick={handleProviderSignIn("google")}
-            variant="outline"
-            size="lg"
-            className="w-full relative"
-          >
-            <FcGoogle className="size-5 absolute top-3 left-2.5" />
-            Continue with Google
-          </Button>
-          <Button
-            disabled={signingIn}
-            onClick={handleProviderSignIn("github")}
-            variant="outline"
-            size="lg"
-            className="w-full relative"
-          >
-            <FaGithub className="size-5 absolute top-3 left-2.5" />
-            Continue with Github
-          </Button>
-        </div>
+
         <p className="text-xs text-muted-foreground">
           Don&apos;t have an account?{" "}
           <span

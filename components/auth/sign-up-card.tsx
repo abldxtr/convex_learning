@@ -43,7 +43,7 @@ export const SignUpCard = ({ setState }: SignUpCardProps) => {
         return;
       }
       setSigningUp(true);
-      signIn("password", { name, email, password, flow: "signUp" })
+      void signIn("password", { name, email, password, flow: "signUp" })
         .catch(() => {
           setError("Something went wrong!");
         })
@@ -52,13 +52,6 @@ export const SignUpCard = ({ setState }: SignUpCardProps) => {
         });
     }
   );
-
-  const handleProviderSignUp = (value: "github" | "google") => () => {
-    setSigningUp(true);
-    signIn(value).finally(() => {
-      setSigningUp(false);
-    });
-  };
 
   return (
     <Card className="w-full h-full p-8">
@@ -117,28 +110,7 @@ export const SignUpCard = ({ setState }: SignUpCardProps) => {
           </Button>
         </form>
         <Separator />
-        <div className="flex flex-col gap-y-2.5">
-          <Button
-            disabled={signingUp}
-            onClick={handleProviderSignUp("google")}
-            variant="outline"
-            size="lg"
-            className="w-full relative"
-          >
-            {/* <FcGoogle className="size-5 absolute top-3 left-2.5" /> */}
-            Continue with Google
-          </Button>
-          <Button
-            disabled={signingUp}
-            onClick={handleProviderSignUp("github")}
-            variant="outline"
-            size="lg"
-            className="w-full relative"
-          >
-            {/* <FaGithub className="size-5 absolute top-3 left-2.5" /> */}
-            Continue with Github
-          </Button>
-        </div>
+
         <p className="text-xs text-muted-foreground">
           Already have an account?{" "}
           <span

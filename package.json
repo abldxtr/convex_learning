@@ -11,14 +11,22 @@
   "dependencies": {
     "@auth/core": "0.37.0",
     "@convex-dev/auth": "^0.0.77",
+    "@convex-dev/react-query": "0.0.0-alpha.8",
     "@radix-ui/react-dropdown-menu": "^2.1.4",
     "@radix-ui/react-separator": "^1.1.1",
+    "@tanstack/react-query": "^5.62.8",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
     "convex": "^1.17.4",
+    "jose": "^5.9.6",
+    "lucide-react": "^0.468.0",
     "next": "15.0.3",
     "react": "^18",
     "react-dom": "^18",
     "react-hook-form": "^7.54.1",
-    "react-icons": "^5.4.0"
+    "react-icons": "^5.4.0",
+    "tailwind-merge": "^2.5.5",
+    "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
     "@types/node": "^22",
