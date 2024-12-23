@@ -18,22 +18,22 @@ export default function ClientMessage(props: {
   const messages = usePreloadedQuery(props.preloadedMessages);
   return (
     <>
-      <p className="text-xl">
+      <div className="text-xl">
         The current counter is{" "}
         <div>
           {messages.map((item, index) => {
             return <div key={index}>{item.content}</div>;
           })}
         </div>
-      </p>
-      <p>
+      </div>
+      <div>
         <button
           // onClick={() => increment()}
           className="cursor-pointer block my-3 border-2 rounded p-4 bg-orange-200 dark:bg-orange-900 dark:text-white"
         >
           Increment it!
         </button>
-      </p>
+      </div>
     </>
   );
 }
